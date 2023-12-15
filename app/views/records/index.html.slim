@@ -5,3 +5,5 @@ h1 #{Record.model_name.human}一覧
     - @records.each do |record|
       li
         = link_to "#{t(record.grade)} (#{record.test_date})", record
+
+= link_to '記録作成', new_record_path
