@@ -1,0 +1,14 @@
+h1 記録詳細
+
+ul
+  li 受験日: #{@record.test_date}
+  li 級: #{@record.grade}
+  li 一次試験: #{@record.first_stage}
+  li 二次試験: #{@record.second_stage}
+  li 結果: #{@record.result}
+  li リーディング: #{@record.reading}
+  li ライティング: #{@record.writing}
+  li リスニング: #{@record.listening}
+  li スピーキング: #{@record.speaking}
+
+p = link_to '記録一覧', records_path
