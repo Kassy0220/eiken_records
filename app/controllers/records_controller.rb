@@ -37,6 +37,12 @@ class RecordsController < ApplicationController
     end
   end
 
+  def destroy
+    set_record
+    @record.destroy
+    redirect_to records_path, status: :see_other
+  end
+
   private
 
   def record_params

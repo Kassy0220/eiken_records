@@ -14,3 +14,6 @@ ul
 p = link_to '記録一覧', records_path
 
 p = link_to '編集', edit_record_path(@record)
+
+p = link_to '削除', @record, data: { turbo_method: :delete,
+                                    turbo_confirm: '本当に削除しますか？' }
