@@ -1,0 +1,17 @@
+require:
+  - rubocop-rails
+
+
+Style/Documentation:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - config/**/*
+    - config.ru
+    - db/migrate/*
+    - db/schema.rb
+    - storage/**/*
+    - tmp/**/*
+    - bin/**/*
