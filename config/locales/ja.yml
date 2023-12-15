@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      record: '記録'
+    attributes:
+      record:
+        test_date: '受験日'
+        grade: '級'
+        first_stage: '一次試験'
+        second_stage: '二次試験'
+        result: '結果'
+        reading: 'リーディング'
+        writing: 'ライティング'
+        listening: 'リスニング'
+        speaking: 'スピーキング'
+  first: '一級'
+  pre_first: '準一級'
+  second: '二級'
+  pre_second: '準二級'
+  third: '三級'
+  fourth: '四級'
+  fifth: '五級'
+  pass: '合格'
+  fail: '不合格'
+  exemption: '免除'

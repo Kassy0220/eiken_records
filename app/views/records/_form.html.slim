@@ -1,10 +1,10 @@
 = form_with model: record do |f|
   div
-    = f.label :test_date, '受験日'
+    = f.label :test_date, Record.human_attribute_name('test_date')
     = f.date_field :test_date
 
   div
-    = f.label :grade, '級'
+    = f.label :grade, Record.human_attribute_name('grade')
     = f.select :grade, [%w[一級 first],
                         %w[準一級 pre_first],
                         %w[二級 second],
@@ -14,29 +14,29 @@
                         %w[五級 fifth]]
 
   div
-    = f.label :first_stage, '一次試験'
+    = f.label :first_stage, Record.human_attribute_name('first_stage')
     = f.select :first_stage, [%w[合格 pass], %w[不合格 fail], %w[免除 exemption]]
 
   div
-    = f.label :second_stage, '二次試験'
+    = f.label :second_stage, Record.human_attribute_name('second_stage')
     = f.select :second_stage, [%w[合格 pass], %w[不合格 fail]]
 
   div
-    = f.label :result, '結果'
+    = f.label :result, Record.human_attribute_name('result')
     = f.select :result, [%w[合格 pass], %w[不合格 fail]]
 
   div
-    = f.label :reading, 'リーディング'
+    = f.label :reading, Record.human_attribute_name('reading')
     = f.text_field :reading
 
   div
-    = f.label :writing, 'ライティング'
+    = f.label :writing, Record.human_attribute_name('writing')
     = f.text_field :writing
   div
-    = f.label :listening, 'リスニング'
+    = f.label :listening, Record.human_attribute_name('listening')
     = f.text_field :listening
   div
-    = f.label :speaking, 'スピーキング'
+    = f.label :speaking, Record.human_attribute_name('speaking')
     = f.text_field :speaking
 
   = f.submit button_text

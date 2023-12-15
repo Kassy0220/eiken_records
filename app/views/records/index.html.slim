@@ -1,7 +1,7 @@
-h1 記録一覧
+h1 #{Record.model_name.human}一覧
 
 - if @records
   ul
     - @records.each do |record|
       li
-        = link_to "#{record.grade} 受験日(#{record.test_date})", record
+        = link_to "#{t(record.grade)} (#{record.test_date})", record
