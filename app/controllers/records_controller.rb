@@ -6,11 +6,15 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @record = Record.find(params[:id])
+    set_record
   end
 
   def new
     @record = Record.new
+  end
+
+  def edit
+    set_record
   end
 
   def create
@@ -23,10 +27,24 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    set_record
+
+    if @record.update(record_params)
+      redirect_to @record
+    else
+      render 'update', status: :unprocessable_entity
+    end
+  end
+
   private
 
   def record_params
     attributes = %i[test_date grade first_stage second_stage result reading writing listening speaking]
     params.require(:record).permit(*attributes)
+  end
+
+  def set_record
+    @record = Record.find(params[:id])
   end
 end
