@@ -7,6 +7,8 @@ ruby '3.2.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
+gem 'slim-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -64,6 +66,7 @@ group :development do
   gem 'error_highlight', '>= 0.4.0', platforms: [:ruby]
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'slim_lint'
 end
 
 group :test do
