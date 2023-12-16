@@ -87,4 +87,20 @@ class RecordsTest < ApplicationSystemTestCase
     assert_text 'リスニング :'
     assert_text 'スピーキング : 500'
   end
+
+  test 'user can delete record' do
+    visit '/'
+    assert_link '五級 (2023-05-26)'
+
+    click_on '五級 (2023-05-26)'
+
+    assert_difference 'Record.count', -1 do
+      accept_confirm do
+        click_on '削除'
+      end
+      assert_selector 'h1', text: '記録一覧'
+    end
+
+    assert_no_link '五級 (2023-05-26)'
+  end
 end
