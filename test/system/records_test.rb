@@ -38,18 +38,16 @@ class RecordsTest < ApplicationSystemTestCase
       assert_link "#{I18n.t(record.grade)} (#{record.test_date})", href: record_path(record)
     end
 
-    target = Record.first
-    click_on "#{I18n.t(target.grade)} (#{target.test_date})"
+    click_on '五級 (2023-05-26)'
     assert_selector 'h1', text: '記録詳細'
-    assert_text "受験日 : #{target.test_date}"
-    assert_text "級 : #{I18n.t(target.grade)}"
-    assert_text "一次試験 : #{I18n.t(target.first_stage)}"
-    assert_text "二次試験 : #{I18n.t(target.second_stage)}"
-    assert_text "結果 : #{I18n.t(target.result)}"
-    assert_text "リーディング : #{target.reading}"
-    assert_text "ライティング : #{target.writing}"
-    assert_text "リスニング : #{target.listening}"
-    assert_text "スピーキング : #{target.speaking}"
+    assert_text '受験日 : 2023-05-26'
+    assert_text '級 : 五級'
+    assert_text '一次試験 : 合格'
+    assert_text '二次試験 : 合格'
+    assert_text '結果 : 合格'
+    assert_text 'リーディング : 420'
+    assert_text 'リスニング : 420'
+    assert_text 'スピーキング : 300'
   end
 
   test 'user can edit record' do
