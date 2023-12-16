@@ -7,7 +7,7 @@ class RecordsTest < ApplicationSystemTestCase
     visit new_record_url
     assert_selector 'h1', text: '記録作成'
 
-    fill_in 'record[test_date]', with: '002023-09-29'
+    fill_in 'record[test_date]', with: '002023-09-30'
     select '二級', from: '級'
     select '合格', from: '一次試験'
     select '不合格', from: '二次試験'
@@ -19,7 +19,7 @@ class RecordsTest < ApplicationSystemTestCase
     click_on '作成'
 
     assert_selector 'h1', text: '記録詳細'
-    assert_text '受験日 : 2023-09-29'
+    assert_text '受験日 : 2023-09-30'
     assert_text '級 : 二級'
     assert_text '一次試験 : 合格'
     assert_text '二次試験 : 不合格'
@@ -50,5 +50,43 @@ class RecordsTest < ApplicationSystemTestCase
     assert_text "ライティング : #{target.writing}"
     assert_text "リスニング : #{target.listening}"
     assert_text "スピーキング : #{target.speaking}"
+  end
+
+  test 'user can edit record' do
+    record = records(:fail_pre_second)
+    visit record_path(record)
+    assert_text '受験日 : 2023-09-29'
+    assert_text '級 : 準二級'
+    assert_text '一次試験 : 合格'
+    assert_text '二次試験 : 不合格'
+    assert_text '結果 : 不合格'
+    assert_text 'リーディング : 500'
+    assert_text 'ライティング : 500'
+    assert_text 'リスニング : 500'
+    assert_text 'スピーキング : 350'
+
+    click_on '編集'
+    assert_selector 'h1', text: '記録編集'
+    fill_in 'record[test_date]', with: '002023-10-01'
+    select '二級', from: '級'
+    select '免除', from: '一次試験'
+    select '合格', from: '二次試験'
+    select '合格', from: '結果'
+    fill_in 'リーディング', with: ''
+    fill_in 'ライティング', with: ''
+    fill_in 'リスニング', with: ''
+    fill_in 'スピーキング', with: '500'
+    click_on '更新'
+
+    assert_selector 'h1', text: '記録詳細'
+    assert_text '受験日 : 2023-10-01'
+    assert_text '級 : 二級'
+    assert_text '一次試験 : 免除'
+    assert_text '二次試験 : 合格'
+    assert_text '結果 : 合格'
+    assert_text 'リーディング :'
+    assert_text 'ライティング :'
+    assert_text 'リスニング :'
+    assert_text 'スピーキング : 500'
   end
 end
