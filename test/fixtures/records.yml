@@ -1,4 +1,4 @@
-one:
+pass_fifth:
   test_date: '2023-05-26'
   grade: 6
   first_stage: 0
@@ -9,7 +9,7 @@ one:
   speaking: 300
   created_at: '2023-06-19 12:00:00'
 
-two:
+fail_pre_second:
   test_date: '2023-09-29'
   grade: 3
   first_stage: 0
@@ -21,7 +21,7 @@ two:
   speaking: 350
   created_at: '2023-10-23 12:00:00'
 
-three:
+pass_pre_second:
   test_date: '2024-01-12'
   grade: 3
   first_stage: 2

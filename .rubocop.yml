@@ -15,3 +15,7 @@ AllCops:
     - storage/**/*
     - tmp/**/*
     - bin/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
