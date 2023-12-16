@@ -2,7 +2,7 @@
 
 class RecordsController < ApplicationController
   def index
-    @records = Record.all
+    @records = Record.order(:created_at)
   end
 
   def show
